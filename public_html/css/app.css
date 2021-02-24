@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.global-template {
+  width: 992px;
+  margin: 0 auto;
+}
+
+.container-pages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.container-pages-header {
+  margin-right: 1rem;
+}
+
+.button-as-anchor {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  background: #eee;
+  color: black;
+  margin: 0 1rem;
+}
+
+.excel-table {
+  color: black;
+  border-collapse: collapse;
+  display: block;
+  margin: 1rem auto;
+}
+
+.excel-table-arrows {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.excel-table-cell {
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  padding: 0 0.25rem 0 0.125rem;
+}
+
+.excel-table-header {
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 0 0.25rem 0 0.125rem;
+  width: 198.4px;
+  background-color: #ccc;
+}
+
+.excel-table-icons {
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  padding: 0 0.25rem 0 0.125rem;
+  background-color: #ccc;
+}
+/*# sourceMappingURL=app.css.map */
