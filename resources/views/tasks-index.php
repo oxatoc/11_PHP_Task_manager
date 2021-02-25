@@ -1,22 +1,22 @@
 
-
-<?php 
-    /* Добавление кнопок страниц */
-    $pagesArray = $dataArray['pages'];
-    if (count($pagesArray) > 0){
-        echo '<div class="container-pages">';
-            echo '<div class="container-pages-header">Страницы:</div>';
-            echo '<ul class="pagination mt-3 mb-3">';
-                foreach($pagesArray as $page){
-                    echo '<li class="page-item'.$page['isActive'].'"><a class="page-link" href="'.$page['href'].'">'.$page['number'].'</a></li>';
-                }
-            echo '</ul>';
-        echo '</div>';
-    }
-?>
-
+<div class="container-pages">
+    <div class="container-pages-header">Страницы:</div>
+    <?php 
+        $pagesArray = $dataArray['pages'];
+        if (count($pagesArray) > 0){
+            include __DIR__.'/../../resources/views/pagination-bar.php';
+        }
+    ?>
+</div>
 
 <table class="excel-table">
+    <!-- Заголовок таблицы задач -->
+        <tr>
+            <?php ?>
+            <td class="excel-table-header">
+            
+        </tr>
+
     <?php 
         /* Добавление заголовка таблицы задач*/
         $tasksArray = $dataArray['tasks'];
