@@ -85,6 +85,13 @@ class Tasks_Controller extends BaseControllerClass{
 
         $dataArray = [
             'tasks' => $tasksArray
+            , 'headers' => [
+                'user' => 'Пользователь'
+                , 'email' => 'E-mail'
+                , 'task' => 'Задача'
+                , 'status' => 'Статус'
+                , 'notes' => 'Отметки'
+            ]
             , 'pages' => $pages
             , 'sortingHrefs' => $sortingButtonsArray
             , 'userIsAdmin' => CurrentUserClass::isAdmin()
