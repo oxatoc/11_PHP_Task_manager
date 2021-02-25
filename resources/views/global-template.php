@@ -39,10 +39,11 @@
         <?php 
             /* Отображение сообщений, сохраненных в переменных сессии */
             if (Oxatoc\Taskmanager\SessionFlashClass::hasMessage()){
-                include __DIR__.'/../../resources/views/flashed-message.php'; 
+        ?>
+        <div class="alert alert-secondary mt-3 mb-3"><?= Oxatoc\Taskmanager\SessionFlashClass::getMessage() ?></div>
+        <?php
             }
         ?>
-
         <?php 
             /* Загрузка представления */
             include __DIR__.'/../../resources/views/'.$viewFile; 
