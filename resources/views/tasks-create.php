@@ -1,4 +1,4 @@
-<form action="<?php echo Oxatoc\Taskmanager\NamedRoutesClass::store ?>" method="POST">
+<form action="<?= Oxatoc\Taskmanager\NamedRoutesClass::store ?>" method="POST">
     <div class="mb-1">
         <label for="input-user" class="form-label">Пользователь</label>
         <input type="text" class="form-control" name="user" value="" id="input-user"><br>

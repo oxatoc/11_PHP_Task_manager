@@ -85,6 +85,13 @@ class Tasks_Controller extends BaseControllerClass{
 
         $dataArray = [
             'tasks' => $tasksArray
+            , 'headers' => [
+                'user' => 'Пользователь'
+                , 'email' => 'E-mail'
+                , 'task' => 'Задача'
+                , 'status' => 'Статус'
+                , 'notes' => 'Отметки'
+            ]
             , 'pages' => $pages
             , 'sortingHrefs' => $sortingButtonsArray
             , 'userIsAdmin' => CurrentUserClass::isAdmin()
@@ -128,7 +135,7 @@ class Tasks_Controller extends BaseControllerClass{
         /* Валидация email */
         $email = htmlspecialchars($_POST['email']);
 
-        if (preg_match('/\w+@\w+\.\w+/', $email) != 1){
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
             SessionFlashClass::setMessage("E-mail не валиден: $email");
             header('Location: '.NamedRoutesClass::create);
             return;
