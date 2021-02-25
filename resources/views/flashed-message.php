@@ -1,0 +1,1 @@
+<div class="alert alert-secondary mt-3 mb-3"><?= Oxatoc\Taskmanager\SessionFlashClass::getMessage() ?></div>

@@ -9,47 +9,37 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
+    <?php use Oxatoc\Taskmanager\NamedRoutesClass; ?>
+    <?php use Oxatoc\Taskmanager\CurrentUserClass; ?>
     <div class="global-template">
+        <nav class="navbar navbar-expand navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="<?php echo NamedRoutesClass::index?>" class="nav-link">Список задач</a>
+                        </li>
 
-        <?php 
-            use Oxatoc\Taskmanager\NamedRoutesClass;
-            use Oxatoc\Taskmanager\CurrentUserClass;
+                        <li class="nav-item">
+                            <a href="<?= NamedRoutesClass::create?>" class="nav-link">Создать новую</a>
+                        </li>
 
-            /* Отображение главного меню */
-            if (true){
-                echo '<nav class="navbar navbar-expand navbar-light bg-light">';
-                    echo '<div class="container-fluid">';
-                        echo '<div class="collapse navbar-collapse" id="navbarNav">';
-                            echo '<ul class="navbar-nav">';
-                                echo '<li class="nav-item">';
-                                echo '<a href="'.NamedRoutesClass::index.'" class="nav-link">Список задач</a>';
-                                echo '</li>';
-
-                                echo '<li class="nav-item">';
-                                echo '<a href="'.NamedRoutesClass::create.'" class="nav-link">Создать новую</a>';
-                                echo '</li>';
-
-                                echo '<li class="nav-item">';
-                                if (CurrentUserClass::isAdmin()){
-                                    echo '<a href="'.NamedRoutesClass::logout.'" class="nav-link">Выход из профиля администратора</a>';
-                                } else {
-                                    echo '<a href="'.NamedRoutesClass::login.'" class="nav-link">Авторизация</a>';
-                                }
-                                echo '</li>';
-                            echo '</ul>';
-                        echo '</div>';
-                    echo '</div>';
-                echo '</nav>';
-            }
-        ?>
-        
+                        <li class="nav-item">
+                        <a href="<?=
+                            CurrentUserClass::isAdmin() ? NamedRoutesClass::logout : NamedRoutesClass::login
+                            ?>" class="nav-link"><?=
+                            CurrentUserClass::isAdmin() ? 'Выход из профиля администратора' : 'Авторизация'
+                            ?></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+       
         <?php 
             /* Отображение сообщений, сохраненных в переменных сессии */
-            use Oxatoc\Taskmanager\SessionFlashClass;
-            if (SessionFlashClass::hasMessage()){
-                echo '<div class="alert alert-secondary mt-3 mb-3">';
-                echo SessionFlashClass::getMessage();
-                echo '</div>';
+            if (Oxatoc\Taskmanager\SessionFlashClass::hasMessage()){
+                include __DIR__.'/../../resources/views/flashed-message.php'; 
             }
         ?>
 
