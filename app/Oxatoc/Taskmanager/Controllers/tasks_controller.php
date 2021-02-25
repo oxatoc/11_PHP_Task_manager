@@ -135,7 +135,7 @@ class Tasks_Controller extends BaseControllerClass{
         /* Валидация email */
         $email = htmlspecialchars($_POST['email']);
 
-        if (preg_match('/\w+@\w+\.\w+/', $email) != 1){
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
             SessionFlashClass::setMessage("E-mail не валиден: $email");
             header('Location: '.NamedRoutesClass::create);
             return;
